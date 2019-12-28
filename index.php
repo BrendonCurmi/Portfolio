@@ -28,7 +28,7 @@
     <h2>About Me</h2>
     <div id="about-me-short">
         <p>I'm a self-taught full-stack programmer with a love for developing software and learning.</p>
-        <p>I have experience in Java, JavaScript, HTML(5), CSS(3), PHP, Python</p>
+        <p>I have experience with Java, JavaScript, HTML(5), CSS(3), PHP, Python</p>
         <p>and using tools such as jQuery, MySQL, JavaFX, Bootstrap, Less, Flask, and more.</p>
     </div>
     <div id="about-me-long" class="hidden">
@@ -41,6 +41,7 @@
         <p>Version Control Systems, like Git</p>
         <p>JavaScript libraries, like jQuery and Bootstrap</p>
         <p>Data Formats, like JSON and XML</p>
+        <p>Minecraft Server APIs, like Bukkit and Spigot</p>
     </div>
     <button class="btn btn-ghost" onclick="aboutMeToggle()">Expand</button>
 </div>
@@ -50,7 +51,7 @@
             <p style="grid-area: type-1" onclick="projectsViewToggle(TYPE.ANDROID)"><i class="fab fa-android"></i><br/>Android Applications</p>
             <p style="grid-area: type-2" onclick="projectsViewToggle(TYPE.DESKTOP)"><i class="fas fa-laptop"></i><br/>Desktop Applications</p>
             <p style="grid-area: type-3" onclick="projectsViewToggle(TYPE.WEBSITE)"><i class="far fa-file"></i><br/>Websites</p>
-            <p style="grid-area: type-4"><i class="fas fa-images"></i><br/>Image Editing</p>
+            <p style="grid-area: type-4" onclick="projectsViewToggle(TYPE.MINECRAFT)"><i class="fas fa-cube"></i><br/>Minecraft</p>
             <p style="grid-area: type-5"><i class="far fa-file-audio"></i><br/>Audio Editing</p>
         </div>
     <button class="btn btn-ghost" onclick="projectsViewToggle()">View</button>
@@ -66,57 +67,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" type="text/javascript"></script>
     <script src="js/anti-solicit.js" type="text/javascript"></script>
     <script src="js/less.min.js" type="text/javascript"></script>
+    <script src="js/projects.js" type="text/javascript"></script>
 </footer>
 <script>
-    var projectsViewToggled = false, viewing = "undefined";
-    function projectsViewToggle(type) {
-        var sel = $("#projects-view");
-
-        function toggle(action) {
-            if (typeof action === "undefined") {
-                sel.slideToggle("slow");
-                projectsViewToggled = !projectsViewToggled;
-            } else if (action === "hide") {
-                sel.slideUp("slow");
-                projectsViewToggled = false;
-            } else if (action === "show") {
-                sel.slideDown("slow");
-                projectsViewToggled = true;
-            }
-        }
-
-        function reset() {
-            child.each(function() {
-                $(this).show();
-            });
-        }
-
-        var child = sel.children("figure"), delay = 0;
-        if (typeof type === "undefined") {
-            if (viewing === "undefined" || !projectsViewToggled) {
-                reset();
-                toggle();
-            } else if (projectsViewToggled && viewing !== "undefined") toggle("hide");
-            type = typeof type;
-        } else if (typeof type !== "undefined") {
-            if (projectsViewToggled && type !== viewing) {
-                toggle("hide");
-                delay = 600;
-            }
-            setTimeout(function() {
-                reset();
-                child.each(function() {
-                    if (!$(this).hasClass(type)) $(this).hide();
-                });
-                toggle();
-            }, delay)
-        }
-        viewing = type;
-    }
-
-    var aboutMeToggled = false;
+    let aboutMeToggled = false;
     function aboutMeToggle() {
-        var sel = $("#about-me"),
+        let sel = $("#about-me"),
             up = (aboutMeToggled = !aboutMeToggled) ? 2 : 3,
             down = (up === 2) ? 3 : 2;
         sel.children(":nth-child(" + up + ")").slideUp("slow");
@@ -124,98 +80,19 @@
         sel.children("button").text(aboutMeToggled ? "Collapse" : "Expand");
     }
 
-    const TYPE = {
-        WEBSITE: "app-web",
-        DESKTOP: "app-desktop",
-        ANDROID: "app-android"
-    };
-
-    const PROJECT = {
-        Memelicious: {
-            name: "Memelicious",
-            type: TYPE.WEBSITE,
-            imgsrc: "memelicious.png",
-            description: "A website used for uploading and sharing images. (Mostly internet memes)"
-        }, BrendonCurmi: {
-            name: "This Website",
-            type: TYPE.WEBSITE,
-            imgsrc: "portfolio.png",
-            description: "My personal online portfolio."
-        }, SeinfeldButton: {
-            name: "SeinfeldButton",
-            type: TYPE.ANDROID,
-            imgsrc: "seinfeldbutton.png",
-            description: "A simple android app that plays the Seinfeld sitcom theme song, during those awkward moments."
-        }, JEFFIFY: {
-            name: "JEFFIFY",
-            type: TYPE.DESKTOP,
-            imgsrc: "jeffify.png",
-            description: "Scrolls through almost all the directories on the computer, and creates 100-1000 copies of a particular image."
-        }, MyNameJeffGane: {
-            name: "My Name Is Jeff: The Game",
-            type: TYPE.DESKTOP,
-            imgsrc: "mynamejeffgame.png",
-            description: "A desktop app to joke with friends."
-        }, AIEngine: {
-            name: "AI Engine",
-            type: TYPE.DESKTOP,
-            imgsrc: "aiengine.png",
-            description: "A natural language processing and generation program, in development."
-        }, Cortex: {
-            name: "Cortex AUI",
-            type: TYPE.ANDROID,
-            imgsrc: "cortexaui.png",
-            description: "A phone interface that would run the AI Engine."
-        }, fxMatrix: {
-            name: "fxMatrix",
-            type: TYPE.DESKTOP,
-            imgsrc: "fxmatrix.png",
-            description: "Development of a game engine and a program that implements it."
-        }, MemeMachine: {
-            name: "MemeMachine",
-            type: TYPE.DESKTOP,
-            imgsrc: "mememachine.png",
-            description: "Makes it easier to save, index, and send pictures and videos. (Mostly internet memes)"
-        }
-    };
-
-//    <figure class="box app-web">
-//        <img src="img/pic.jpg" alt=""/>
-//        <figcaption>
-//        <h1>My hover Overlay</h1>
-//    <a href="#" class="button">Learn More</a>
-//    </figcaption>
-//    </figure>
-    function generateProject(vars) {
-        return "<figure class='box " + vars.type + "' style=''>" +
-            "<img src='img/" + vars.imgsrc + "' alt='" + vars.name + " Image'/>" +
-            "<figcaption>" + vars.name +
-            "<div></div>" +
-            "<div class='hidden'>" +
-            "<p>" + vars.description + "</p>" +
-//            "<br/>" +
-            "<div class='center'>" +
-            "<img src='img/" + vars.imgsrc + "'/></div>" +
-            "</div>" +
-            "</figcaption>" +
-            "</figure>";
-    }
-
     function isIE() {
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE ");
+        let ua = window.navigator.userAgent,
+            msie = ua.indexOf("MSIE ");
         return msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./);
     }
 
     $(document).ready(function() {
         // Hide #what-i-do if using IE
-        if (isIE()) {
-            $("#what-i-do").parent().hide();
-        }
+        if (isIE()) $("#what-i-do").parent().hide();
 
         // Add projects
-        var sel = $("#projects-view");
-        for (var key in PROJECT)
+        let sel = $("#projects-view");
+        for (let key in PROJECT)
             if (PROJECT.hasOwnProperty(key))
                 sel.append(generateProject(PROJECT[key]));
 
