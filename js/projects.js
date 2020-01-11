@@ -147,6 +147,11 @@ const PROJECT = {
     },
 };
 
+/**
+ * Creates the box card for the specified project.
+ * @param vars the project object.
+ * @returns {string} the HTML of the card.
+ */
 function generateProject(vars) {
     let imgs = "";
     if (vars.imgsrc.constructor === Array) {
@@ -154,7 +159,7 @@ function generateProject(vars) {
         vars.imgsrc = vars.imgsrc[0];
     } else imgs = "<img src='img/" + vars.imgsrc + "'/>";
 
-    return "<figure class='box " + vars.type + "' style=''>" +
+/*    return "<figure class='box " + vars.type + "' style=''>" +
         "<img src='img/" + vars.imgsrc + "' alt='" + vars.name + " Image'/>" +
         "<figcaption>" + vars.name +
         "<div></div>" +
@@ -166,8 +171,60 @@ function generateProject(vars) {
         "</div>" +
         "</div>" +
         "</figcaption>" +
-        "</figure>";
+        "</figure>";*/
+    return `
+    <figure class="box ${vars.type}">
+        <img src="img/${vars.imgsrc}" alt="${vars.name} Image"/>
+        <figcaption>
+            <p class="name">${vars.name}</p>
+            <p class="tech">${vars.tech}</p>
+            <span></span>
+        </figcaption>
+    </figure>
+    `;
 }
+
+/**
+ * Creates the popup box for the specified project.
+ * @param vars the project object.
+ * @returns {string} the HTML of the popup box.
+ */
+function getCardForProject(vars) {
+    let imgs = "";
+    if (vars.imgsrc.constructor === Array) {
+        for (let i = 0; i < vars.imgsrc.length; i++) imgs += "<img src='img/" + vars.imgsrc[i] + "'/><br/>";
+        vars.imgsrc = vars.imgsrc[0];
+    } else imgs = "<img src='img/" + vars.imgsrc + "'/>";
+
+    return `
+    <div>
+        <p>${vars.name}</p>
+        <p>${vars.description}</p>
+        <p>Technologies: ${vars.tech}</p>
+        <div class="center">
+            ${imgs}
+        </div>
+    </div>
+    `;
+}
+
+/**
+ * Gets the project from the specified name.
+ * @param name the name of the project.
+ * @returns {object|null} the project object;
+ * or null if the project with the specified name isn't found.
+ */
+function getProjectByName(name) {
+    for (let key in PROJECT) {
+        if (PROJECT.hasOwnProperty(key)) {
+            if (PROJECT[key].name === name) {
+                return PROJECT[key];
+            }
+        }
+    }
+    return null
+}
+
 
 let projectsViewToggled = false, viewing = "undefined";
 function projectsViewToggle(type) {

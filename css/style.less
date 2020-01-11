@@ -1,6 +1,26 @@
+/* Variables */
+
+// Extra Small Screen / Phone
+@screen-xs: 480px;
+
+// Small Screen / Tablet
+@screen-sm: 768px;
+
+// Medium Screen / Desktop
+@screen-md: 992px;
+
+// Large Screen / Wide Desktop
+@screen-lg: 1200px;
+
+// Maximum so media queries don't overlap when required
+@screen-xs-max: (@screen-sm - 1px);
+@screen-sm-max: (@screen-md - 1px);
+@screen-md-max: (@screen-lg - 1px);
+
 @scheme: #2ecc71;
 @background: black;
 @fonts: "Arial Narrow", Times, serif;
+@img: "../img";
 
 @font-face {
   font-family: "FontAwesome";
@@ -95,90 +115,15 @@ h1, h2, h3, h4, h5, h5 {
   width: 100%;
   /*height: 100px;*/
   border: 1px solid grey;
-  display: inline-block;
+  //display: inline-block;
   vertical-align: top;
   margin-top: 10px;
   position: relative;
-}
 
-/* Figures */
-figure {
-  margin: 5px !important;
-  position: relative;
-  background-color: #000;
-  &.box {
-    width: 300px;
-    height: 200px;
-    img {
-      &:extend(figure.box);
-      max-width: 100%;
-      max-height: 100%;
-      display: block;
-      /*position: relative;*/
-    }
-  }
-  &:hover {
-    img, figcaption {
-      opacity: 0.25;
-      .animate(@duration: .8s; @function: ease);
-    }
-    figcaption {
-      opacity: 1 !important;
-    }
-  }
-  figcaption {
-    position: absolute;
-    top: 40%;
-    /*left: 0;*/
-    width: 100%;
-    /*width: 100px;*/
-    /*width: 10px;*/
-    text-align: center;
-    opacity: 0;
-    color: #fff;
-    &:before {
-      .font-awesome();
-    }
-    a.button {
-      color: #fff;
-      text-decoration: none;
-      border: 1px solid #fff;
-      padding: 10px;
-      -webkit-border-radius: 2px;
-      -moz-border-radius: 2px;
-      border-radius: 2px;
-      &:hover {
-        background-color: #fff;
-        color: #666666;
-      }
-    }
-  }
-  &.app- {
-    .fa(@icon, @name) {
-      figcaption div:nth-of-type(1) {
-        float: left;
-        left: 10px;
-        bottom: -90px;
-        position: inherit;
-        &:before {
-          .font-awesome();
-          content: "@{icon}  @{name}";
-        }
-      }
-    }
-    &android {
-      .fa("\f17b"; "Android App");
-    }
-    &desktop {
-      .fa("\f109"; "Desktop App");
-    }
-    &web {
-      .fa("\f15b"; "Website");
-    }
-    &minecraft {
-      .fa("\f1b2"; "Minecraft");
-    }
-  }
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .bootbox-body img {
@@ -217,26 +162,67 @@ figure {
   }
 }
 
+
+@banner-height: calc(100vh);
+@banner-width: 100%;
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#banner {
+  height: @banner-height;
+  width: @banner-width;
+}
+
+
+canvas {
+  position: absolute;
+  border: 1px solid white;
+  height: @banner-height;
+  width: @banner-width;
+}
+
 /* Banner Description */
 #banner-desc {
-  top: 40%;
+  //top: 10%;
+  //background: url("@{img}/banner.jpg") no-repeat center center fixed;
+  //background-size: cover;
+
+  h1 {
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
   @media screen {
-    @media (max-width : 870px) {
+    @media (max-width: 870px) {
       top: 22%;
       h1 {
         font-size: 3em !important;
       }
     }
-    @media (max-width : 600px) {
+    @media (max-width: 600px) {
       top: 10%;
       h1 {
         font-size: 2em !important;
       }
+
       h2 {
         font-size: 1em !important;
       }
     }
-    @media (max-width : 400px) {
+    @media (max-width: 400px) {
+      background-color: white;
       top: -5%;
     }
   }
@@ -262,6 +248,7 @@ div#what-i-do {
         margin-bottom: 0;
       }
       background-color: lighten(#34495e, 20%); //#9b009b
+      border-radius: 25px;
     }
     i {
       font-size: 100px;
@@ -270,6 +257,110 @@ div#what-i-do {
   }
 }
 
-div#projects-view img {
-  width: 300px;
+#projects-view {
+  img {
+    width: 300px;
+  }
+
+  figure {
+    margin: 5px !important;
+    position: relative;
+    background-color: #000;
+
+    &.box {
+      width: 300px;
+      height: 200px;
+
+      img {
+        &:extend(figure.box);
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        /*position: relative;*/
+      }
+    }
+
+    &:hover {
+      img, figcaption {
+        opacity: 0.25;
+        .animate(@duration: .8s; @function: ease);
+      }
+
+      figcaption {
+        opacity: 1 !important;
+      }
+    }
+
+    figcaption {
+      position: absolute;
+
+      //flex but inline
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      color: #fff;
+
+      p.name {
+        color: white;
+        font-weight: bold;
+      }
+
+      p.tech {
+        color: @scheme;
+        word-break: break-all;
+      }
+
+      &:before {
+        .font-awesome();
+      }
+
+      a.button {
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #fff;
+        padding: 10px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+
+        &:hover {
+          background-color: #fff;
+          color: #666666;
+        }
+      }
+    }
+
+    &.app- {
+      .fa(@icon, @name) {
+        figcaption span:nth-of-type(1) {
+          float: left;
+          left: 10px;
+          bottom: -90px;
+          position: inherit;
+
+          &:before {
+            .font-awesome();
+            content: "@{icon}  @{name}";
+          }
+        }
+      }
+      /*&android {
+        .fa("\f17b"; "Android App");
+      }
+      &desktop {
+        .fa("\f109"; "Desktop App");
+      }
+      &web {
+        .fa("\f15b"; "Website");
+      }
+      &minecraft {
+        .fa("\f1b2"; "Minecraft");
+      }*/
+    }
+  }
 }
