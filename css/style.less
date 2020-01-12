@@ -53,7 +53,8 @@ body {
   font-family: @fonts;
   font-size: 20px;
   @spacing: 50px;
-  > div {
+  overflow-x: hidden;
+  > div, > section {
     &:extend(.center);
     &.scheme {
       background-color: @scheme;
@@ -173,15 +174,7 @@ h1, h2, h3, h4, h5, h5 {
   align-items: center;
 }
 
-#banner {
-  height: @banner-height;
-  width: @banner-width;
-}
-
-
-canvas {
-  position: absolute;
-  border: 1px solid white;
+#banner, #canvas {
   height: @banner-height;
   width: @banner-width;
 }
@@ -191,6 +184,8 @@ canvas {
   //top: 10%;
   //background: url("@{img}/banner.jpg") no-repeat center center fixed;
   //background-size: cover;
+  z-index: 1;
+  position: absolute;
 
   h1 {
     color: white;
@@ -206,13 +201,11 @@ canvas {
 
   @media screen {
     @media (max-width: 870px) {
-      top: 22%;
       h1 {
         font-size: 3em !important;
       }
     }
     @media (max-width: 600px) {
-      top: 10%;
       h1 {
         font-size: 2em !important;
       }
@@ -223,7 +216,6 @@ canvas {
     }
     @media (max-width: 400px) {
       background-color: white;
-      top: -5%;
     }
   }
 }
@@ -232,7 +224,7 @@ canvas {
   //line-height: 10px;
 //}
 
-div#what-i-do {
+#what-i-do {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-areas: "type-1 type-2 type-3 type-4 type-5";
@@ -363,4 +355,14 @@ div#what-i-do {
       }*/
     }
   }
+}
+
+.alert {
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: fit-content;
+  position: absolute;
+  z-index: 2;
 }

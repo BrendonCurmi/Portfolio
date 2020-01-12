@@ -153,25 +153,7 @@ const PROJECT = {
  * @returns {string} the HTML of the card.
  */
 function generateProject(vars) {
-    let imgs = "";
-    if (vars.imgsrc.constructor === Array) {
-        for (let i = 0; i < vars.imgsrc.length; i++) imgs += "<img src='img/" + vars.imgsrc[i] + "'/><br/>";
-        vars.imgsrc = vars.imgsrc[0];
-    } else imgs = "<img src='img/" + vars.imgsrc + "'/>";
-
-/*    return "<figure class='box " + vars.type + "' style=''>" +
-        "<img src='img/" + vars.imgsrc + "' alt='" + vars.name + " Image'/>" +
-        "<figcaption>" + vars.name +
-        "<div></div>" +
-        "<div class='hidden'>" +
-        "<p>" + vars.description + "</p>" +
-        "<p>Technologies: " + vars.tech + "</p>" +
-        "<div class='center'>" +
-        imgs +
-        "</div>" +
-        "</div>" +
-        "</figcaption>" +
-        "</figure>";*/
+    if (vars.imgsrc.constructor === Array) vars.imgsrc = vars.imgsrc[0];
     return `
     <figure class="box ${vars.type}">
         <img src="img/${vars.imgsrc}" alt="${vars.name} Image"/>
@@ -191,10 +173,8 @@ function generateProject(vars) {
  */
 function getCardForProject(vars) {
     let imgs = "";
-    if (vars.imgsrc.constructor === Array) {
-        for (let i = 0; i < vars.imgsrc.length; i++) imgs += "<img src='img/" + vars.imgsrc[i] + "'/><br/>";
-        vars.imgsrc = vars.imgsrc[0];
-    } else imgs = "<img src='img/" + vars.imgsrc + "'/>";
+    if (vars.imgsrc.constructor === Array) for (let i = 0; i < vars.imgsrc.length; i++) imgs += "<img src='img/" + vars.imgsrc[i] + "'/><br/>";
+    else imgs = "<img src='img/" + vars.imgsrc + "'/>";
 
     return `
     <div>
