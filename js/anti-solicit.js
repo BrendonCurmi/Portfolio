@@ -1,2 +1,0 @@
-// $(document).ready(function(){$("a[title='000webhost logo']").parent().remove();});
-$(document).ready(function(){$("a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.']").parent().remove();});
