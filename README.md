@@ -1,6 +1,6 @@
 # Portfolio
 An online portfolio explaining my skill set and some of the projects I've worked on.
-Can be found <a href="https://github.com/BrendonCurmi/Portfolio" target="_blank">here</a>
+Can be found <a href="https://brendoncurmi.github.io/Portfolio/" target="_blank">here</a>
 
 **Built Using**
 - <a href="https://jquery.com/" target="_blank">jQuery</a> - General use JS library
