@@ -20,8 +20,6 @@ const PROJECT = {
         description: "Its crawling and indexing allows quick search of text from services (such as local files, Gmail, etc).",
         tech: "Java, JavaFX, CSS, SQLite3, FxCore"
     },
-
-
     AIEngine: {
         name: "AI Engine",
         type: TYPE.DESKTOP,
@@ -29,8 +27,6 @@ const PROJECT = {
         description: "A natural language processing and generation program, in development.",
         tech: "Java"
     },
-
-
     DogeTransaction: {
         name: "DogeTransaction",
         type: TYPE.WEBSITE,
@@ -73,8 +69,6 @@ const PROJECT = {
         description: "Extracts an SQLite database into a csv file.",
         tech: "Java, SQLite3"
     },
-
-
     Memelicious: {
         name: "Memelicious",
         type: TYPE.WEBSITE,
@@ -147,6 +141,23 @@ const PROJECT = {
     },
 };
 
+$(function() {
+    // Add projects
+    let sel = $("#projects-view");
+    for (let key in PROJECT)
+        if (PROJECT.hasOwnProperty(key))
+            sel.append(generateProject(PROJECT[key]));
+
+    sel.children("figure").on("click", function() {
+        let project = $(this).find("p.name").html();
+        bootbox.alert({
+            message: getCardForProject(getProjectByName(project)),
+            size: "large",
+            backdrop: true
+        });
+    });
+});
+
 /**
  * Creates the box card for the specified project.
  * @param vars the project object.
@@ -175,7 +186,6 @@ function getCardForProject(vars) {
     let imgs = "";
     if (vars.imgsrc.constructor === Array) for (let i = 0; i < vars.imgsrc.length; i++) imgs += "<img src='img/" + vars.imgsrc[i] + "'/><br/>";
     else imgs = "<img src='img/" + vars.imgsrc + "'/>";
-
     return `
     <div>
         <p>${vars.name}</p>
@@ -195,16 +205,12 @@ function getCardForProject(vars) {
  * or null if the project with the specified name isn't found.
  */
 function getProjectByName(name) {
-    for (let key in PROJECT) {
-        if (PROJECT.hasOwnProperty(key)) {
-            if (PROJECT[key].name === name) {
+    for (let key in PROJECT)
+        if (PROJECT.hasOwnProperty(key))
+            if (PROJECT[key].name === name)
                 return PROJECT[key];
-            }
-        }
-    }
     return null
 }
-
 
 let projectsViewToggled = false, viewing = "undefined";
 function projectsViewToggle(type) {

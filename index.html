@@ -173,12 +173,12 @@
 <footer style="text-align: center">
     <p>Made by Brendon Curmi</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5" type="text/javascript"></script>
+    <script src="js/canvas.min.js" type="text/javascript"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js" type="text/javascript"></script>
     <script async src="js/bootstrap.min.js" type="text/javascript"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" type="text/javascript"></script>
     <script async src="js/projects.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5" type="text/javascript"></script>
-    <script src="js/canvas.min.js" type="text/javascript"></script>
 </footer>
 <script>
     // Smooth scroll to anchor
@@ -198,23 +198,6 @@
         sel.children(":nth-child(" + down + ")").slideDown("slow");
         sel.children("button").text(aboutMeToggled ? "Collapse" : "Expand");
     }
-
-    $(function() {
-        // Add projects
-        let sel = $("#projects-view");
-        for (let key in PROJECT)
-            if (PROJECT.hasOwnProperty(key))
-                sel.append(generateProject(PROJECT[key]));
-
-        sel.children("figure").on("click", function() {
-            let project = $(this).find("p.name").html();
-            bootbox.alert({
-                message: getCardForProject(getProjectByName(project)),
-                size: "large",
-                backdrop: true
-            });
-        });
-    });
 </script>
 </body>
 </html>
