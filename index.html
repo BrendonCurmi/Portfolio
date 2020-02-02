@@ -20,20 +20,19 @@
 ┻┳┳┻|⊂ﾉ
 ┻┳┻┳|
 -->
-<!--<div class="overlay overlay-auto" style="position: relative; padding: 0">
-    <img src="img/banner.jpg" style="width: 100%; max-height: 700px"/>
-</div>-->
 <noscript>
     <div class="alert alert-warning fade show">JavaScript is disabled on your browser. This limits functionality. <a href="https://www.enable-javascript.com/" target="_blank">How do I enable it?</a></div>
-
-    <!-- Fallback banner image if JS isnt allowed -->
     <style>
+        /* Fallback banner image */
         #banner {
             background-image: url("img/banner.png");
         }
+        /* Hide js buttons */
+        #about-me .btn, #projects .btn {
+            display: none;
+        }
     </style>
 </noscript>
-
 <section id="banner" class="flex">
     <div id="canvas">
         <!-- Canvas animation inspired by and adapted from https://dollarakshay.com/particles.html -->
@@ -41,43 +40,128 @@
     <div id="banner-desc" class="flex">
         <h1>Hi, I'm Brendon</h1>
         <h2>I make stuff</h2>
+        <a class="button" href="#about-me">See More</a>
     </div>
 </section>
-
-<section id="about-me" style="background-color: #ffffff">
+<section id="about-me" style="display: inline-block; width:100%">
     <h2>About Me</h2>
     <div id="about-me-short">
-        <p>I'm a self-taught full-stack developer with a love for developing software and learning.</p>
-        <p>I have experience with Java, JavaScript, HTML(5), CSS(3), PHP, Python</p>
-        <p>and using tools such as jQuery, MySQL, JavaFX, Bootstrap, Less, Flask, and more.</p>
+        <p>I'm a full-stack developer with a love for developing software and learning.</p>
+        <p>I have experience with <span class="svg java"></span> Java, <span class="svg js"></span> JavaScript, <span class="svg html5"></span> HTML(5), <span class="svg css3"></span> CSS(3), <span class="svg php"></span> PHP, <span class="svg python"></span> Python</p>
+        <p>and concepts like Search-Engine Optimization, Containerization/Virtualization, Artificial Intelligence, Open-Source, etc</p>
+        <p>and using tools like Git, Angular, MySQL, jQuery, and more.</p>
     </div>
     <div id="about-me-long" class="hidden">
-        <p>Java GUI libraries, like Swing and JavaFX</p>
-        <p>Database Management Systems, like MySQL and SQLite(3)</p>
-        <p>Backend Web Development Frameworks, like Flask</p>
-        <p>CSS Pre-Processors, like Less and Sass</p>
+        <p>Web Frameworks like
+            <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">
+                <span class="svg angular"></span>
+                Angular.js
+            </a>,
+            <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
+                <span class="svg react"></span>
+                React.js
+            </a>,
+            <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer">
+                <span class="svg vue"></span>
+                Vue.js
+            </a>,
+            <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">
+                <span class="svg node"></span>
+                Node.js
+            </a>
+        </p>
+        <p>Database Management Systems like
+            <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg mysql"></span>
+                MySQL
+            </a>,
+            SQLite(3)
+        </p>
         <p>Responsive Website Design</p>
         <p>Mobile Development with Android</p>
-        <p>Version Control Systems, like Git</p>
-        <p>JavaScript libraries, like jQuery and Bootstrap</p>
-        <p>Data Formats, like JSON and XML</p>
-        <p>Minecraft Server Plugin APIs, like Bukkit, Spigot, Sponge</p>
+        <p>Version Control Systems like
+            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg git"></span>
+                Git
+            </a>,
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg github"></span>
+                GitHub
+            </a>,
+            <a href="https://about.gitlab.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg gitlab"></span>
+                GitLab
+            </a>,
+            <a href="https://bitbucket.org/" target="_blank" rel="noopener noreferrer">
+                <span class="svg bitbucket"></span>
+                BitBucket
+            </a>
+        </p>
+        <p>CSS Pre-Processors like
+            <a href="http://lesscss.org/" target="_blank" rel="noopener noreferrer">
+                Less
+            </a>,
+            <a href="https://sass-lang.com/" target="_blank" rel="noopener noreferrer">
+                Sass
+            </a>
+        </p>
+        <p>Virtualized Management Systems using
+            <a href="https://www.vmware.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg vmware"></span>
+                VMware
+            </a>,
+            <a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer">
+                <span class="svg virtualbox"></span>
+                VirtualBox
+            </a>
+        </p>
+        <p>Containerized Management Systems using
+            <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg docker"></span>
+                Docker
+            </a>,
+            <a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer">
+                <span class="svg kubernetes"></span>
+                Kubernetes
+            </a>
+        </p>
+        <p>DevOps using
+            <a href="https://www.chef.io/" target="_blank" rel="noopener noreferrer">
+                <span class="svg chefdk"></span>
+                ChefDK
+            </a>,
+            <a href="https://www.vagrantup.com/" target="_blank" rel="noopener noreferrer">
+                <span class="svg vagrant"></span>
+                Vagrant
+            </a>
+        </p>
+        <p>Minecraft Server Plugin APIs like
+            <a href="https://bukkit.org/" target="_blank" rel="noopener noreferrer">
+                <span class="svg bukkit"></span>
+                Bukkit
+            </a>,
+            <a href="https://www.spigotmc.org/" target="_blank" rel="noopener noreferrer">
+                Spigot
+            </a>,
+            <a href="https://www.spongepowered.org/" target="_blank" rel="noopener noreferrer">
+                <span class="svg spongeapi"></span>
+                SpongeAPI
+            </a>
+        </p>
+        <p></p>
     </div>
     <button class="btn btn-ghost" onclick="aboutMeToggle()">Expand</button>
 </section>
-<section style="background-color: #34495e">
+<section id="projects" style="background-color: #0F0F14">
     <h2>Some Projects I've Worked On</h2>
     <div id="what-i-do">
-        <p style="grid-area: type-1" onclick="projectsViewToggle(TYPE.ANDROID)"><i class="fab fa-android"></i><br/>Android Applications</p>
-        <p style="grid-area: type-2" onclick="projectsViewToggle(TYPE.DESKTOP)"><i class="fas fa-laptop"></i><br/>Desktop Applications</p>
-        <p style="grid-area: type-3" onclick="projectsViewToggle(TYPE.WEBSITE)"><i class="far fa-file"></i><br/>Websites</p>
-        <p style="grid-area: type-4" onclick="projectsViewToggle(TYPE.MINECRAFT)"><i class="fas fa-cube"></i><br/>Minecraft</p>
-        <p style="grid-area: type-5"><i class="far fa-file-audio"></i><br/>Audio Editing</p>
+        <p class="ripple" style="grid-area: type-1" onclick="projectsViewToggle(TYPE.DESKTOP)"><i class="fas fa-laptop"></i><br/>Desktop Applications</p>
+        <p class="ripple" style="grid-area: type-2" onclick="projectsViewToggle(TYPE.WEBSITE)"><i class="far fa-file"></i><br/>Websites</p>
+        <p class="ripple" style="grid-area: type-3" onclick="projectsViewToggle(TYPE.ANDROID)"><i class="fab fa-android"></i><br/>Android Applications</p>
+        <p class="ripple" style="grid-area: type-4" onclick="projectsViewToggle(TYPE.MINECRAFT)"><i class="fas fa-cube"></i><br/>Minecraft</p>
     </div>
     <button class="btn btn-ghost" onclick="projectsViewToggle()">View</button>
-    <div id="projects-view" class="hidden">
-        <br/>
-    </div>
+    <div id="projects-view" class="hidden"></div>
 </section>
 <footer style="text-align: center">
     <p>Made by Brendon Curmi</p>
@@ -86,12 +170,19 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" type="text/javascript"></script>
     <script src="js/anti-solicit.js" type="text/javascript"></script>
-    <!--<script src="js/less.min.js" type="text/javascript"></script>-->
     <script src="js/projects.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5" type="text/javascript"></script>
     <script src="js/canvas.min.js" type="text/javascript"></script>
 </footer>
 <script>
+    // Smooth scroll to anchor
+    $(document).on("click", "a[href^='#']", function(event) {
+        event.preventDefault();
+        $("html, body").animate({
+            scrollTop: $($.attr(this, "href")).offset().top
+        }, 500);
+    });
+
     let aboutMeToggled = false;
     function aboutMeToggle() {
         let sel = $("#about-me"),
@@ -102,16 +193,7 @@
         sel.children("button").text(aboutMeToggled ? "Collapse" : "Expand");
     }
 
-    function isIE() {
-        let ua = window.navigator.userAgent,
-            msie = ua.indexOf("MSIE ");
-        return msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./);
-    }
-
-    $(document).ready(function() {
-        // Hide #what-i-do if using IE
-        if (isIE()) $("#what-i-do").parent().hide();
-
+    $(function() {
         // Add projects
         let sel = $("#projects-view");
         for (let key in PROJECT)
