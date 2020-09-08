@@ -62,13 +62,6 @@ const PROJECT = {
         description: "A core API I developed with frameworks for common utilities I use in my projects (like commands, databases, caching, etc).",
         tech: "Java, SQLite3"
     },
-    DBExtractor: {
-        name: "DBExtractor",
-        type: TYPE.DESKTOP,
-        imgsrc: "dbextractor.png",
-        description: "Extracts an SQLite database into a csv file.",
-        tech: "Java, SQLite3"
-    },
     Memelicious: {
         name: "Memelicious",
         type: TYPE.WEBSITE,
@@ -76,12 +69,40 @@ const PROJECT = {
         description: "A website used for uploading and sharing images. (Designed for internet memes)",
         tech: "Python, JS, HTML, CSS, Flask, SQLite3"
     },
-    BrendonCurmi: {
+    DBExtractor: {
+        name: "DBExtractor",
+        type: TYPE.DESKTOP,
+        imgsrc: "dbextractor.png",
+        description: "Extracts an SQLite database into a csv file.",
+        tech: "Java, SQLite3"
+    },
+    Portfolio: {
         name: "This Website",
         type: TYPE.WEBSITE,
         imgsrc: "portfolio.png",
         description: "My personal online portfolio.",
         tech: "PHP, JS, HTML, CSS"
+    },
+    SeinfeldButton: {
+        name: "SeinfeldButton",
+        type: TYPE.ANDROID,
+        imgsrc: "seinfeldbutton.png",
+        description: "A simple android app that plays the Seinfeld sitcom theme song, during those awkward moments.",
+        tech: "Java, Android"
+    },
+    Cortex: {
+        name: "Cortex AUI",
+        type: TYPE.ANDROID,
+        imgsrc: "cortexaui.png",
+        description: "A phone interface that would run the AI Engine.",
+        tech: "Java, Android"
+    },
+    fxMatrix: {
+        name: "fxMatrix",
+        type: TYPE.DESKTOP,
+        imgsrc: "fxmatrix.png",
+        description: "Development of a game engine and a program that implements it.",
+        tech: "Java, LWJGL"
     },
     FusionMC: {
         name: "FusionMC",
@@ -103,41 +124,6 @@ const PROJECT = {
         imgsrc: "fxgame.png",
         description: "A backbone framework to facilitate the making and implementation of general game plugin mechanics. Designed for use on the devs' personal server.",
         tech: "Java, Minecraft, Spigot/Bukkit"
-    },
-    Cortex: {
-        name: "Cortex AUI",
-        type: TYPE.ANDROID,
-        imgsrc: "cortexaui.png",
-        description: "A phone interface that would run the AI Engine.",
-        tech: "Java, Android"
-    },
-    SeinfeldButton: {
-        name: "SeinfeldButton",
-        type: TYPE.ANDROID,
-        imgsrc: "seinfeldbutton.png",
-        description: "A simple android app that plays the Seinfeld sitcom theme song, during those awkward moments.",
-        tech: "Java, Android"
-    },
-    fxMatrix: {
-        name: "fxMatrix",
-        type: TYPE.DESKTOP,
-        imgsrc: "fxmatrix.png",
-        description: "Development of a game engine and a program that implements it.",
-        tech: "Java, LWJGL"
-    },
-    JEFFIFY: {
-        name: "JEFFIFY",
-        type: TYPE.DESKTOP,
-        imgsrc: "jeffify.png",
-        description: "Scrolls through almost all the directories on the computer, and creates 100-1000 copies of a particular image.",
-        tech: "Java"
-    },
-    MyNameJeffGame: {
-        name: "My Name Is Jeff: The Game",
-        type: TYPE.DESKTOP,
-        imgsrc: "mynamejeffgame.png",
-        description: "A desktop app to joke with friends.",
-        tech: "Java, JavaFX"
     },
 };
 
